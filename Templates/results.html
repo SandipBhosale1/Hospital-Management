@@ -1,0 +1,25 @@
+<!-- results.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Cursor Results</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        {% for column in results.keys() %}
+          <th>{{ column }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in results %}
+        <tr>
+          {% for column in row %}
+            <td>{{ column }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

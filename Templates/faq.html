@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}
+FAQ - Hospital Management System
+{% endblock title %}
+
+
+{% block css %}
+<style>
+/* Custom styles for FAQ page */
+
+/* Increase font size of question headers */
+.accordion-item h3.accordion-header button {
+  font-size: 1.2rem;
+}
+
+/* Change color of collapsed question headers */
+.accordion-item h3.accordion-header button.collapsed {
+  color: #007bff;
+}
+
+/* Change color of expanded question headers */
+.accordion-item h3.accordion-header button:not(.collapsed) {
+  color: #28a745;
+}
+
+/* Add margin to answer bodies */
+.accordion-item .accordion-body {
+  margin-top: 1rem;
+}
+
+/* Change background color of footer */
+.footer {
+  background-color: #f8f9fa;
+}
+</style>
+{% endblock css %}
+
+
+
+{% block body %}
+<h1>Frequently Asked Questions</h1>
+
+<h2>General Questions</h2>
+<div class="accordion">
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="question-1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer-1" aria-expanded="false" aria-controls="answer-1">
+        What is a Hospital Management System?
+      </button>
+    </h3>
+    <div id="answer-1" class="accordion-collapse collapse" aria-labelledby="question-1" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        A Hospital Management System is a software platform designed to manage the day-to-day operations and administrative tasks of a healthcare facility. This includes managing patient data, appointment scheduling, billing and payments, and inventory management.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="question-2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer-2" aria-expanded="false" aria-controls="answer-2">
+        Who can use the Hospital Management System?
+      </button>
+    </h3>
+    <div id="answer-2" class="accordion-collapse collapse" aria-labelledby="question-2" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        The Hospital Management System can be used by healthcare providers, hospitals, clinics, and other healthcare facilities. It is designed to be used by both administrative staff and medical personnel.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="question-3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer-3" aria-expanded="false" aria-controls="answer-3">
+        What are the benefits of using a Hospital Management System?
+      </button>
+    </h3>
+    <div id="answer-3" class="accordion-collapse collapse" aria-labelledby="question-3" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Some of the benefits of using a Hospital Management System include improved patient care, increased efficiency and productivity, better communication between staff members, reduced errors and redundancies, and improved financial management.
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Technical Questions</h2>
+<div class="accordion">
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="question-4">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer-4" aria-expanded="false" aria-controls="answer-4">
+        What technologies are used in the Hospital Management System?
+      </button>
+    </h3>
+    <div id="answer-4" class="accordion-collapse collapse" aria-labelledby="question-4" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        The Hospital Management System is built using a variety of technologies, including but not limited to: HTML, CSS, JavaScript, Python, Django, MySQL, and AWS.
+      </div>
+    </div>
+</div>
+</div>
+
+
+<div class="container-fluid text-center footer">
+	<p>&copy; 2023 Example Website. All Rights Reserved.</p>
+	</div>
+{% endblock body %}

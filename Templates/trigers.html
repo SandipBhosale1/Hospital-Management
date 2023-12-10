@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Trigers   
+{% endblock title %}
+
+
+{% block styles %}
+<style>
+    /* Add some hover and active effects to the table rows */
+    tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+    tbody tr:active {
+        background-color: #e6e6e6;
+    }
+
+    /* Add a CSS transition to the table rows */
+    tbody tr {
+        transition: background-color 0.3s ease;
+    }
+
+    /* Add a scale effect to the table headers */
+    thead th {
+        transition: transform 0.3s ease;
+    }
+    thead th:hover {
+        transform: scale(1.1);
+    }
+
+    /* Add some padding and center the content of the table cells */
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class ="container">
+    <div class="row">
+        <div class="col-md-15 mt-3 pt-3">
+            {%with messages = get_flashed_messages(with_categories = true)%}
+      {%if messages%}
+      {%for category , message in messages%}
+      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+          {{message}}
+
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      {%endfor%}
+  {%endif%}
+  {%endwith%}
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">TId</th>
+                    <th scope="col">Patient Id</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                  <tr>
+                    <th scope="row">{{post.tid}}</th>
+                    <td>{{post.pid}}</td>
+                    <td>{{post.email}}</td>
+                    <td>{{post.name}}</td>
+                    <td>{{post.action}}</td>
+                    <td>{{post.timestamp}}</td>
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>
+              
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid text-center footer">
+	<p>&copy; 2023 Example Website. All Rights Reserved.</p>
+	</div>
+{% endblock body %}

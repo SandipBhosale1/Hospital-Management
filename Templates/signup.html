@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sign Up    
+{% endblock title %}
+
+{%block css%}
+<style>
+  .jumbotron {
+    background-color: #e9ecef;
+    animation: shake 0.5s;
+  }
+
+  .jumbotron:hover {
+    background-color: #dee2e6;
+    cursor: pointer;
+  }
+
+  .jumbotron:active {
+    background-color: #adb5bd;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(0);
+    }
+    25% {
+      transform: translate(5px, -5px);
+    }
+    50% {
+      transform: translate(0);
+    }
+    75% {
+      transform: translate(-5px, 5px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  .main-content{
+	width: 50%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+	margin: 5em auto;
+	display: flex;
+}
+
+  .company__info{
+	background-color: #e9ecef;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+</style>
+{%endblock css%}
+
+
+{%block body%}
+<div class="container mt-5 pt-5">
+    <div class="row">
+
+    <div class="col-md-4">
+        
+    </div>
+    <div class="col-md-4 jumbotron">
+      {%with messages = get_flashed_messages(with_categories = true)%}
+      {%if messages%}
+      {%for category , message in messages%}
+      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+          {{message}}
+
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      {%endfor%}
+  {%endif%}
+  {%endwith%}
+        <form action="/signup" method="POST">
+            <legend class="text-center text-white">Sign Up</legend>
+            <br>
+            {%with messages = get_flashed_messages(with_categories = true)%}
+        {%if messages%}
+        {%for category , message in messages%}
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+            {{message}}
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+            
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+            
+        </form>
+
+        <br>
+        Already a User ? <a href="/signup" class="text-decoration-none text-center">Sign Up Now </a>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+</div> 
+<div class="container-fluid text-center footer">
+	<p>&copy; 2023 Example Website. All Rights Reserved.</p>
+	</div>
+{%endblock body%}
